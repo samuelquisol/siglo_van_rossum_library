@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToMany, JoinTable, DeleteDateColumn  } from 'typeorm';
-/* import { Book } from '../books/book.entity';
- */
+import { Book } from 'src/modules/books/entities/book.entity';
+
 @Entity()
 export class Author {
   @PrimaryGeneratedColumn()
@@ -12,10 +12,9 @@ export class Author {
   @Column()
   biography: string;
 
-/*   @ManyToMany(() => Book, book => book.authors)
+  @ManyToMany(() => Book, book => book.authors)
   @JoinTable()
   books: Book[];
- */
 
   @DeleteDateColumn()
   deletedAt?: Date;
