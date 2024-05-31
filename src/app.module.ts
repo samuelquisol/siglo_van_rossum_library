@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthorsModule } from './modules/authors/authors.module';
+import { HttpExceptionFilter } from './common/filters/http-exception.filter';
+import { APP_FILTER } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -18,6 +21,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         ssl: true,
       },
     }),
+    AuthorsModule,
+  ],
+  providers: [
+    {
+      provide: APP_FILTER,
+      useClass: HttpExceptionFilter,
+    },
   ],
 })
 export class AppModule {}
