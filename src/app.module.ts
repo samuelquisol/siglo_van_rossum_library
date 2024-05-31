@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthorsModule } from './modules/authors/authors.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { APP_FILTER } from '@nestjs/core';
+import { BooksModule } from './modules/books/books.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { APP_FILTER } from '@nestjs/core';
       },
     }),
     AuthorsModule,
+    BooksModule,
   ],
   providers: [
     {
