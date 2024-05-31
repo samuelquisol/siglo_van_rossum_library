@@ -5,6 +5,7 @@ import { AuthorsModule } from './modules/authors/authors.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { APP_FILTER } from '@nestjs/core';
 import { BooksModule } from './modules/books/books.module';
+import { SalesModule } from './modules/sales/sales.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { BooksModule } from './modules/books/books.module';
     }),
     AuthorsModule,
     BooksModule,
+    SalesModule,
   ],
   providers: [
     {
