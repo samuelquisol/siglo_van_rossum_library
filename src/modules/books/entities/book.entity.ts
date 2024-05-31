@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, OneToMany, DeleteDateColumn } from 'typeorm';
 import { Author } from '../../authors/entities/author.entity';
-/* import { Sale } from '../../sales/entities/sale.entity';
- */
+import { Sale } from '../../sales/entities/sale.entity';
+
 @Entity()
 export class Book {
   @PrimaryGeneratedColumn()
@@ -26,9 +26,8 @@ export class Book {
   @JoinTable()
   authors: Author[];
 
-/*   @OneToMany(() => Sale, sale => sale.book)
+  @OneToMany(() => Sale, sale => sale.book)
   sales: Sale[];
- */
 
   @DeleteDateColumn()
   deletedAt?: Date;
